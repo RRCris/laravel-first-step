@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -13,10 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::find(2);
-        if ($post) {
-            $post->delete();
-        }
+        $post = Post::find(3);
+        $category = Category::find(1);
+        dd($category->posts[0]->title);
         // $post->update(["title" => "new title", "slug" => "new slug"]);
 
         return response()->json([
